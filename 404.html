@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>404: Future Not Found</title>
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: linear-gradient(135deg, #232526 0%, #414345 100%);
+			font-family: 'Orbitron', Arial, sans-serif;
+			overflow: hidden;
+		}
+		/* Removed animated gradient for calmer look */
+			.container {
+				text-align: center;
+				color: #fff;
+				padding: 2rem 2rem 3rem 2rem;
+				border-radius: 2rem;
+				background: rgba(40,44,52,0.85);
+				box-shadow: 0 8px 32px 0 rgba(31,38,135,0.25);
+				backdrop-filter: blur(4px);
+			}
+			.big-404 {
+				font-size: 7rem;
+				letter-spacing: 0.18em;
+				font-weight: 700;
+				margin-bottom: 0.2em;
+				color: #90caf9;
+				text-shadow: 0 0 16px #1976d2, 0 0 2px #fff;
+			}
+			.message {
+				font-size: 1.3rem;
+				margin-bottom: 2em;
+				color: #b0bec5;
+				text-shadow: 0 0 6px #1976d2;
+			}
+			.button {
+				display: inline-block;
+				padding: 1em 2em;
+				font-size: 1.1rem;
+				color: #fff;
+				background: #1976d2;
+				border: none;
+				border-radius: 2em;
+				cursor: pointer;
+				box-shadow: 0 0 12px #1976d2, 0 0 2px #fff;
+				transition: transform 0.2s, box-shadow 0.2s;
+				text-decoration: none;
+				font-family: inherit;
+			}
+			.button:hover {
+				transform: scale(1.06) rotate(-1deg);
+				box-shadow: 0 0 24px #90caf9, 0 0 8px #1976d2;
+				background: #1565c0;
+			}
+			@media (max-width: 600px) {
+				.big-404 { font-size: 3.2rem; }
+				.container { padding: 1rem; }
+			}
+	</style>
+</head>
+<body>
+	<div class="tech-bg"></div>
+	<div class="container">
+		<div style="position:relative; width:180px; margin:0 auto 1.2em auto; height:200px;">
+						<object id="robot-lost" type="image/svg+xml" data="assets/robot-lost.svg" style="width:180px; height:200px; display:block; animation: floaty 2.5s ease-in-out infinite;"></object>
+	<script>
+		// Animated speech bubble text
+		if (!window._bubbleTexts) {
+			window._bubbleTexts = [
+				"Searching for the lost page...",
+				"404: Page not found!",
+				"Did you try turning it off and on again?",
+				"Beep boop! Still lost...",
+				"Initiating quantum search... No luck!"
+			];
+			window._bubbleIdx = 0;
+			setInterval(() => {
+				window._bubbleIdx = (window._bubbleIdx + 1) % window._bubbleTexts.length;
+				document.getElementById('bubble-text').textContent = window._bubbleTexts[window._bubbleIdx];
+			}, 2600);
+		}
+		// Console joke
+		setTimeout(() => {
+			console.log("%c404: Future Not Found!", "color:#1976d2; font-size:2em; font-family:Orbitron,monospace;");
+			console.log("%cOur robot is still searching...", "color:#90caf9; font-size:1.2em;");
+		}, 1000);
+		// Mouse eye tracking for lost robot
+		const robotObj = document.getElementById('robot-lost');
+		robotObj.addEventListener('load', () => {
+			const svgDoc = robotObj.contentDocument;
+			if (!svgDoc) return;
+			const leftEye = svgDoc.getElementById('eye-left-lost');
+			const rightEye = svgDoc.getElementById('eye-right-lost');
+			const leftPupil = svgDoc.getElementById('pupil-left-lost');
+			const rightPupil = svgDoc.getElementById('pupil-right-lost');
+			document.addEventListener('mousemove', (e) => {
+				if (!leftEye || !rightEye || !leftPupil || !rightPupil) return;
+				function movePupil(eye, pupil, mouseX, mouseY) {
+					const bbox = robotObj.getBoundingClientRect();
+					const eyeBox = eye.getBoundingClientRect();
+					const eyeCenterX = eyeBox.left + eyeBox.width / 2;
+					const eyeCenterY = eyeBox.top + eyeBox.height / 2;
+					const dx = mouseX - eyeCenterX;
+					const dy = mouseY - eyeCenterY;
+					const angle = Math.atan2(dy, dx);
+					const maxDist = 2.5;
+					const px = parseFloat(eye.getAttribute('cx')) + Math.cos(angle) * maxDist;
+					const py = parseFloat(eye.getAttribute('cy')) + Math.sin(angle) * maxDist;
+					pupil.setAttribute('cx', px);
+					pupil.setAttribute('cy', py);
+				}
+				movePupil(leftEye, leftPupil, e.clientX, e.clientY);
+				movePupil(rightEye, rightPupil, e.clientX, e.clientY);
+			});
+		});
+	</script>
+			<div class="speech-bubble" id="speech-bubble">
+				<span id="bubble-text">Scanning for lost pages...</span>
+			</div>
+		</div>
+		<div class="big-404">404</div>
+		<div class="message">Oops! The page you’re looking for is lost in the dataverse.<br>
+			<span style="font-size:1.1em; color:#90caf9;">(Our friendly robot couldn't find it either!)</span>
+		</div>
+		<a href="/" class="button">Beam Me Home</a>
+	</div>
+	<style>
+		.tech-bg {
+			position: fixed;
+			top: 0; left: 0; width: 100vw; height: 100vh;
+			z-index: 0;
+			background: radial-gradient(circle at 60% 40%, #232526 60%, #1976d2 100%);
+			overflow: hidden;
+		}
+		.tech-bg::before, .tech-bg::after {
+			content: '';
+			position: absolute;
+			border-radius: 50%;
+			filter: blur(32px);
+			opacity: 0.18;
+		}
+		.tech-bg::before {
+			width: 400px; height: 400px;
+			left: 10vw; top: 10vh;
+			background: #90caf9;
+			animation: tech-orb1 8s linear infinite alternate;
+		}
+		.tech-bg::after {
+			width: 300px; height: 300px;
+			right: 10vw; bottom: 10vh;
+			background: #00eaff;
+			animation: tech-orb2 10s linear infinite alternate;
+		}
+		@keyframes tech-orb1 {
+			0% { transform: scale(1) translateY(0); }
+			100% { transform: scale(1.2) translateY(40px); }
+		}
+		@keyframes tech-orb2 {
+			0% { transform: scale(1) translateY(0); }
+			100% { transform: scale(0.9) translateY(-30px); }
+		}
+		.speech-bubble {
+			position: absolute;
+			left: 110px; top: 30px;
+			min-width: 120px;
+			max-width: 180px;
+			background: #fff;
+			color: #1976d2;
+			border-radius: 1em;
+			padding: 0.7em 1em;
+			font-size: 1.05em;
+			box-shadow: 0 2px 12px #1976d2aa;
+			border: 2px solid #90caf9;
+			z-index: 2;
+			animation: bubble-in 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+		}
+		.speech-bubble:after {
+			content: '';
+			position: absolute;
+			left: -18px; top: 18px;
+			width: 0; height: 0;
+			border-top: 12px solid transparent;
+			border-bottom: 12px solid transparent;
+			border-right: 18px solid #fff;
+			filter: drop-shadow(-2px 0 0 #90caf9);
+		}
+		@keyframes bubble-in {
+			0% { transform: scale(0.7) translateY(20px); opacity: 0; }
+			100% { transform: scale(1) translateY(0); opacity: 1; }
+		}
+		@keyframes floaty {
+			0% { transform: translateY(0); }
+			50% { transform: translateY(-18px); }
+			100% { transform: translateY(0); }
+		}
+	</style>
+	<script>
+		// Animated speech bubble text
+		const bubbleTexts = [
+			"Scanning for lost pages...",
+			"404: Page not found!",
+			"Did you try turning it off and on again?",
+			"Beep boop! This isn't the page you’re looking for.",
+			"Initiating quantum search... No luck!"
+		];
+		let bubbleIdx = 0;
+		setInterval(() => {
+			bubbleIdx = (bubbleIdx + 1) % bubbleTexts.length;
+			document.getElementById('bubble-text').textContent = bubbleTexts[bubbleIdx];
+		}, 2600);
+		// Console joke
+		setTimeout(() => {
+			console.log("%c404: Future Not Found!", "color:#1976d2; font-size:2em; font-family:Orbitron,monospace;");
+			console.log("%cOur robot is still searching...", "color:#90caf9; font-size:1.2em;");
+		}, 1000);
+	</script>
+</body>
+</html>
+
