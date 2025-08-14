@@ -1,0 +1,25 @@
+<svg id="robot-svg" width="180" height="200" viewBox="0 0 180 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="robot-body">
+    <ellipse cx="90" cy="150" rx="60" ry="40" fill="#e0e0e0"/>
+    <rect x="50" y="60" width="80" height="60" rx="24" fill="#b0bec5" stroke="#607d8b" stroke-width="4"/>
+    <ellipse id="eye-left" cx="75" cy="90" rx="8" ry="12" fill="#263238"/>
+    <ellipse id="eye-right" cx="105" cy="90" rx="8" ry="12" fill="#263238"/>
+    <ellipse id="pupil-left" cx="75" cy="92" rx="3" ry="4" fill="#90caf9">
+      <animate attributeName="cy" values="92;95;92" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse id="pupil-right" cx="105" cy="92" rx="3" ry="4" fill="#90caf9">
+      <animate attributeName="cy" values="92;95;92" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    <rect x="80" y="110" width="20" height="8" rx="4" fill="#607d8b"/>
+    <rect id="arm-left" x="38" y="100" width="12" height="40" rx="6" fill="#b0bec5">
+      <animateTransform attributeName="transform" type="rotate" from="0 44 100" to="-20 44 100" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect id="arm-right" x="130" y="100" width="12" height="40" rx="6" fill="#b0bec5">
+      <animateTransform attributeName="transform" type="rotate" from="0 136 100" to="20 136 100" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="70" y="40" width="40" height="20" rx="10" fill="#90caf9" stroke="#1976d2" stroke-width="2"/>
+    <circle id="antenna" cx="90" cy="40" r="5" fill="#1976d2">
+      <animate attributeName="fill" values="#1976d2;#ffeb3b;#1976d2" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

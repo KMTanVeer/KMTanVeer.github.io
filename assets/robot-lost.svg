@@ -1,0 +1,30 @@
+<svg id="robot-lost" width="180" height="200" viewBox="0 0 180 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="robot-body-lost">
+    <!-- Head -->
+    <ellipse cx="90" cy="70" rx="32" ry="28" fill="#232946" stroke="#00eaff" stroke-width="4"/>
+    <!-- Visor -->
+    <rect x="70" y="60" width="40" height="14" rx="7" fill="#00eaff" stroke="#fff" stroke-width="2"/>
+    <!-- Eyes (pupils will be moved by JS) -->
+    <ellipse id="eye-left-lost" cx="80" cy="70" rx="5" ry="6" fill="#fff" stroke="#00fff7" stroke-width="1.5"/>
+    <ellipse id="eye-right-lost" cx="100" cy="70" rx="5" ry="6" fill="#fff" stroke="#00fff7" stroke-width="1.5"/>
+    <ellipse id="pupil-left-lost" cx="80" cy="71" rx="2" ry="2.5" fill="#00eaff"/>
+    <ellipse id="pupil-right-lost" cx="100" cy="71" rx="2" ry="2.5" fill="#00eaff"/>
+    <!-- Mouth (worried) -->
+    <path d="M85 80 Q90 85 95 80" stroke="#fff" stroke-width="2" fill="none"/>
+    <!-- Antenna -->
+    <rect x="88" y="44" width="4" height="12" rx="2" fill="#00fff7"/>
+    <circle id="antenna-light-lost" cx="90" cy="44" r="4" fill="#00fff7">
+      <animate attributeName="fill" values="#00fff7;#00eaff;#00fff7" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Body -->
+    <ellipse cx="90" cy="130" rx="24" ry="32" fill="#232946" stroke="#00eaff" stroke-width="3"/>
+    <!-- Arms -->
+    <rect id="arm-left-lost" x="54" y="110" width="12" height="8" rx="4" fill="#00eaff"/>
+    <rect id="arm-right-lost" x="114" y="110" width="12" height="8" rx="4" fill="#00eaff"/>
+    <!-- Legs -->
+    <rect id="leg-left-lost" x="78" y="155" width="8" height="22" rx="4" fill="#00fff7"/>
+    <rect id="leg-right-lost" x="94" y="155" width="8" height="22" rx="4" fill="#00fff7"/>
+    <!-- Shadow -->
+    <ellipse cx="90" cy="185" rx="18" ry="5" fill="#00eaff" opacity="0.18"/>
+  </g>
+</svg>

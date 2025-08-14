@@ -1,0 +1,37 @@
+<svg id="robot-svg" width="180" height="200" viewBox="0 0 180 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="robot-body">
+    <!-- Head -->
+    <rect x="50" y="50" width="80" height="60" rx="18" fill="#22223b" stroke="#00fff7" stroke-width="4"/>
+    <!-- Faceplate -->
+    <rect x="60" y="65" width="60" height="30" rx="10" fill="#2a2a40" stroke="#ff00c8" stroke-width="2"/>
+    <!-- Eyes (pupils will be moved by JS) -->
+    <ellipse id="eye-left" cx="80" cy="80" rx="10" ry="12" fill="#fff" stroke="#00fff7" stroke-width="2"/>
+    <ellipse id="eye-right" cx="110" cy="80" rx="10" ry="12" fill="#fff" stroke="#00fff7" stroke-width="2"/>
+    <ellipse id="pupil-left" cx="80" cy="80" rx="4" ry="5" fill="#ff00c8"/>
+    <ellipse id="pupil-right" cx="110" cy="80" rx="4" ry="5" fill="#ff00c8"/>
+    <!-- Mouth -->
+    <rect x="85" y="100" width="10" height="6" rx="3" fill="#00fff7"/>
+    <!-- Antenna -->
+    <rect x="87" y="35" width="6" height="20" rx="3" fill="#ff00c8"/>
+    <circle id="antenna-light" cx="90" cy="35" r="6" fill="#00fff7">
+      <animate attributeName="fill" values="#00fff7;#ff00c8;#00fff7" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Ears -->
+    <rect x="40" y="70" width="10" height="20" rx="5" fill="#ff00c8"/>
+    <rect x="130" y="70" width="10" height="20" rx="5" fill="#ff00c8"/>
+    <!-- Body -->
+    <rect x="60" y="110" width="60" height="50" rx="18" fill="#232946" stroke="#00fff7" stroke-width="3"/>
+    <!-- Arms -->
+    <rect id="arm-left" x="30" y="120" width="20" height="10" rx="5" fill="#ff00c8">
+      <animateTransform attributeName="transform" type="rotate" from="0 40 125" to="-20 40 125" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect id="arm-right" x="130" y="120" width="20" height="10" rx="5" fill="#ff00c8">
+      <animateTransform attributeName="transform" type="rotate" from="0 140 125" to="20 140 125" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Legs -->
+    <rect x="75" y="160" width="10" height="25" rx="5" fill="#00fff7"/>
+    <rect x="95" y="160" width="10" height="25" rx="5" fill="#00fff7"/>
+    <!-- Neon glow -->
+    <ellipse cx="90" cy="195" rx="38" ry="8" fill="#00fff7" opacity="0.3"/>
+  </g>
+</svg>
